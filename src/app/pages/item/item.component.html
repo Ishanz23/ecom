@@ -1,0 +1,18 @@
+<mat-toolbar class="px-8-16">
+  <a mat-icon-button [routerLink]="['/items', categoryId]" matTooltip="Back to list">
+    <mat-icon>arrow_back</mat-icon>
+  </a>
+  <span>{{ item.name }}</span>
+</mat-toolbar>
+<mat-card>
+  <img mat-card-image [src]="item.img">
+  <mat-card-content>
+    <p>
+      ₹{{ item.price }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>

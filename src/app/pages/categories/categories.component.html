@@ -1,0 +1,16 @@
+<mat-toolbar class="px-8-16">
+  <a mat-icon-button routerLink="/home" matTooltip="Back to Home">
+    <mat-icon>arrow_back</mat-icon>
+  </a>
+  <span>Categories</span>
+</mat-toolbar>
+<mat-card class="p-0">
+  <mat-nav-list class="p-0">
+    <mat-list-item *ngFor="let category of categories; last as isLast" [routerLink]="['/items', category.id]">
+      <img matListAvatar [src]="category.img">
+      <a matLine>{{ category.name }}</a>
+      <span [matBadge]="category.quantity"></span>
+      <mat-divider *ngIf="!isLast"></mat-divider>
+    </mat-list-item>
+  </mat-nav-list>
+</mat-card>

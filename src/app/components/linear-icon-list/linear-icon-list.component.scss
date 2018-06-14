@@ -1,0 +1,9 @@
+.linear-list-container {
+  padding: 10px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+.tile {
+  text-align: center;
+}

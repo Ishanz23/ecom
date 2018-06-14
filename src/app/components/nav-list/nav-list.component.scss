@@ -1,0 +1,12 @@
+mat-sidenav {
+  min-width: 200px;
+}
+nav {
+  padding-top: 8px;
+}
+mat-nav-list {
+  padding: 0;
+}
+.active {
+  background-color: rgba($color: #000000, $alpha: 0.12);
+}

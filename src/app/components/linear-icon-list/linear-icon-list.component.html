@@ -1,0 +1,16 @@
+<mat-card class="linear-list-container">
+  <div class="tile" *ngFor="let item of list" [routerLink]="[nextRoute, item.id]">
+    <a mat-icon-button class="my-8">
+      <img [src]="item.img" class="icon-img">
+    </a>
+    <br>
+    <span>{{ item.name }}</span>
+  </div>
+  <div class="tile" routerLink="/categories">
+    <a mat-icon-button class="my-8" color="primary">
+      <mat-icon>more_horiz</mat-icon>
+    </a>
+    <br>
+    <span class="mat-caption">More</span>
+  </div>
+</mat-card>

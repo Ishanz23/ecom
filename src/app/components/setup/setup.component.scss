@@ -1,0 +1,19 @@
+mat-sidenav-container {
+  height: 100%;
+}
+.icon-img-container {
+  margin-right: 8px;
+}
+mat-sidenav-content mat-toolbar {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+main {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 56px auto;
+  @media (min-width: 600px) {
+    grid-template-rows: 64px auto;
+  }
+}
