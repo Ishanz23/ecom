@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
+import { RoutingModule } from './routing.module';
 import { MaterialModule } from './material.module';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [],
-  exports: [AppRoutingModule, MaterialModule, CommonModule],
+  exports: [RoutingModule, MaterialModule, CommonModule],
   declarations: []
 })
-export class AppSharedModule {}
+export class SharedModule {}

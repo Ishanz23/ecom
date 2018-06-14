@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './modules/app-routing.module';
+import { RoutingModule } from './modules/routing.module';
 import { ComponentsModule } from './modules/components.module';
 import { PagesModule } from './modules/pages.module';
 
@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
+    RoutingModule,
     ComponentsModule,
     PagesModule
   ],
