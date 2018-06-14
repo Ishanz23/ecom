@@ -1,10 +1,10 @@
-<mat-toolbar class="px-8-16">
-  <a mat-icon-button routerLink="/categories" matTooltip="Back to Categories">
+<mat-toolbar class="px-8">
+  <a mat-icon-button routerLink="/items" matTooltip="Back to Categories">
     <mat-icon>arrow_back</mat-icon>
   </a>
   <span>{{ category.name }}</span>
   <span class="spacer"></span>
-  <span [matBadge]="category.quantity"></span>
+
 </mat-toolbar>
 <mat-card class="p-0">
   <mat-nav-list class="p-0">

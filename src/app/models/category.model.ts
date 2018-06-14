@@ -1,5 +1,5 @@
-import { ModelSetup } from './model.setup';
-
-export interface Category extends ModelSetup {
-  quantity: number;
+export interface Category {
+  id: number;
+  name: string;
+  img: string;
 }

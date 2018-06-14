@@ -8,19 +8,9 @@ import { HomeComponent } from '../pages/home/home.component';
 import { ErrorComponent } from '../pages/error/error.component';
 
 const routes: Routes = [
-  {
-    path: 'home/:categoryId/:itemId',
-    redirectTo: 'categories/:categoryId/:itemId',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home/:categoryId',
-    redirectTo: 'categories/:categoryId',
-    pathMatch: 'full'
-  },
   { path: 'items/:categoryId/:itemId', component: ItemComponent },
   { path: 'items/:categoryId', component: ItemsComponent },
-  { path: 'categories', component: CategoriesComponent },
+  { path: 'items', component: CategoriesComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: ErrorComponent }

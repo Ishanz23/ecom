@@ -9,7 +9,6 @@
     <mat-list-item *ngFor="let category of categories; last as isLast" [routerLink]="['/items', category.id]">
       <img matListAvatar [src]="category.img">
       <a matLine>{{ category.name }}</a>
-      <span [matBadge]="category.quantity"></span>
       <mat-divider *ngIf="!isLast"></mat-divider>
     </mat-list-item>
   </mat-nav-list>

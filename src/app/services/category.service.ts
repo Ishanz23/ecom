@@ -18,20 +18,14 @@ export class CategoryService {
     this.category = {
       id: id,
       name: 'Category',
-      img: 'assets/img/items/dummy.jpg',
-      quantity: id * 5
+      img: 'assets/img/items/dummy.jpg'
     };
     return this.category;
   }
   private generateCategories(num) {
     this.categories = [];
     for (let i = 1; i <= num; i++) {
-      this.categories.push({
-        id: i,
-        name: 'Category',
-        img: 'assets/img/items/dummy.jpg',
-        quantity: i * 5
-      });
+      this.categories.push(this.getCategory(i));
     }
     return [...this.categories];
   }

@@ -1,5 +1,5 @@
-import { ModelSetup } from './model.setup';
+import { Category } from './category.model';
 
-export interface Item extends ModelSetup {
+export interface Item extends Category {
   price: number;
 }

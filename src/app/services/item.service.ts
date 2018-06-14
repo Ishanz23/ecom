@@ -11,24 +11,19 @@ export class ItemsService {
   getAllItems(categoryId) {
     return this.generateItems(categoryId * 5);
   }
-  getItem(itemId) {
+  getItem(id) {
     this.item = {
-      id: itemId,
+      id: id,
       name: 'Item',
       img: 'assets/img/items/dummy.jpg',
-      price: itemId * 10
+      price: id * 10
     };
     return this.item;
   }
   private generateItems(num) {
     this.items = [];
     for (let i = 1; i <= num; i++) {
-      this.items.push({
-        id: i + 1,
-        name: 'Item',
-        img: 'assets/img/items/dummy.jpg',
-        price: i * 10
-      });
+      this.items.push(this.getItem(i));
     }
     return [...this.items];
   }
