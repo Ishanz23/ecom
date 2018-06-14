@@ -12,7 +12,7 @@ export class CategoryService {
     return this.generateCategories(num);
   }
   getAllCategories() {
-    return this.generateCategories(15);
+    return this.generateCategories(10);
   }
   getCategory(id) {
     this.category = {
