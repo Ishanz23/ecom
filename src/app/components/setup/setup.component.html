@@ -1,16 +1,19 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
-    <mat-toolbar color="primary" class="mat-elevation-z4">
-      <a mat-icon-button class="icon-img-container">
+    <mat-toolbar color="primary" class="mat-elevation-z4 px-8">
+      <button mat-icon-button (click)="sidenav.close()">
+        <mat-icon>close</mat-icon>
+      </button>
+      <!-- <a mat-icon-button class="icon-img-container">
         <img src="assets/img/users/suvi.jpeg" class="icon-img">
-      </a>
+      </a> -->
       <span>Hello User</span>
     </mat-toolbar>
     <app-nav-list (close)="sidenav.close()"></app-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary" class="mat-elevation-z4 px-8">
-      <button mat-icon-button (click)="sidenav.toggle()">
+      <button mat-icon-button (click)="sidenav.open()">
         <mat-icon>menu</mat-icon>
       </button>
       <span routerLink="/home" class="pointer">Ecom</span>
@@ -22,7 +25,7 @@
         <mat-icon>search</mat-icon>
       </button>
     </mat-toolbar>
-    <main>
+    <main class="sidenav-content">
       <section class="main-toolbar-padding"></section>
       <section class="content">
         <ng-content></ng-content>

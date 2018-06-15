@@ -9,7 +9,9 @@ import {
   MatDividerModule,
   MatCardModule,
   MatTooltipModule,
-  MAT_TOOLTIP_DEFAULT_OPTIONS
+  MAT_TOOLTIP_DEFAULT_OPTIONS,
+  MatExpansionModule,
+  MatSliderModule
 } from '@angular/material';
 import { tooltipDefaults } from './providers/tooltipDefaults.provider';
 
@@ -24,7 +26,9 @@ import { tooltipDefaults } from './providers/tooltipDefaults.provider';
     MatListModule,
     MatDividerModule,
     MatCardModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatExpansionModule,
+    MatSliderModule
   ],
   providers: [
     { provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: tooltipDefaults }

@@ -9,11 +9,3 @@ mat-sidenav-content mat-toolbar {
   top: 0;
   z-index: 2;
 }
-main {
-  height: 100%;
-  display: grid;
-  grid-template-rows: 56px auto;
-  @media (min-width: 600px) {
-    grid-template-rows: 64px auto;
-  }
-}

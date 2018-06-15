@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ItemComponent } from '../pages/item/item.component';
-import { ItemsComponent } from '../pages/items/items.component';
-import { CategoriesComponent } from '../pages/categories/categories.component';
-import { HomeComponent } from '../pages/home/home.component';
 import { ErrorComponent } from '../pages/error/error.component';
+import { HomeComponent } from '../pages/home/home.component';
+import { CategoriesComponent } from '../pages/categories/categories.component';
+import { ItemsComponent } from '../pages/items/items.component';
+import { ItemComponent } from '../pages/item/item.component';
 
 const routes: Routes = [
   { path: 'items/:categoryId/:itemId', component: ItemComponent },

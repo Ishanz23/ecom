@@ -1,0 +1,24 @@
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Sort</mat-panel-title>
+      <mat-panel-description class="mat-caption">Relevance</mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let action of sortActions">
+        <mat-icon matListIcon>{{ action.icon }}</mat-icon>
+        <span matLine>{{ action.desc }}</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-expansion-panel>
+  <mat-expansion-panel expanded="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Range</mat-panel-title>
+      <mat-panel-description class="mat-caption">₹{{minVal}} - ₹{{maxVal}}</mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="range-container">
+      <app-range label="Min" align="left" min="0" max="500" color="accent" [(ngModel)]="minVal" name="minVal" (change)="onChange('min', $event)"></app-range>
+      <app-range label="Max" align="right" min="0" max="500" color="accent" [(ngModel)]="maxVal" name="maxVal" (change)="onChange('max', $event)"></app-range>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

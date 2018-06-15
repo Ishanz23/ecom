@@ -1,18 +1,29 @@
-<mat-toolbar class="px-8">
-  <a mat-icon-button routerLink="/items" matTooltip="Back to Categories">
-    <mat-icon>arrow_back</mat-icon>
-  </a>
-  <span>{{ category.name }}</span>
-  <span class="spacer"></span>
-
-</mat-toolbar>
-<mat-card class="p-0">
-  <mat-nav-list class="p-0">
-    <mat-list-item *ngFor="let item of items; last as isLast" [routerLink]="['/items', category.id, item.id]">
-      <img matListAvatar [src]="item.img">
-      <a matLine>{{ item.name }}</a>
-      <span>₹{{ item.price }}</span>
-      <mat-divider *ngIf="!isLast"></mat-divider>
-    </mat-list-item>
-  </mat-nav-list>
-</mat-card>
+<section class="sidenav-content">
+  <mat-toolbar class="px-8">
+    <a mat-icon-button routerLink="/items" matTooltip="Back to Categories">
+      <mat-icon>arrow_back</mat-icon>
+    </a>
+    <span>{{ category.name }}</span>
+    <span class="spacer"></span>
+    <button mat-button (click)="filter.toggle()">
+      <mat-icon>filter_list</mat-icon> Filter
+    </button>
+  </mat-toolbar>
+  <mat-sidenav-container>
+    <mat-sidenav #filter position="end" opened>
+      <app-filter></app-filter>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-card class="p-0">
+        <mat-nav-list class="p-0">
+          <mat-list-item *ngFor="let item of items; last as isLast" [routerLink]="['/items', category.id, item.id]">
+            <img matListAvatar [src]="item.img">
+            <span matLine>{{ item.name }}</span>
+            <span matLine>₹{{ item.price }}</span>
+            <mat-divider *ngIf="!isLast"></mat-divider>
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-card>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</section>
