@@ -23,14 +23,12 @@ export class FilterComponent implements OnInit {
   }
   onChange(type, value) {
     if (type === 'min') {
-      if (value >= this.maxVal) {
+      if (this.minVal >= this.maxVal) {
         this.minVal = this.maxVal - this.step;
-        console.log(type, this.minVal, this.maxVal);
       }
     } else {
-      if (value <= this.minVal) {
+      if (this.maxVal <= this.minVal) {
         this.maxVal = this.minVal + this.step;
-        console.log(type, this.minVal, this.minVal);
       }
     }
   }
