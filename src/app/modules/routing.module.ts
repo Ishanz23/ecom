@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'items/:categoryId', component: ItemsComponent },
   { path: 'items', component: CategoriesComponent },
   { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/items/1', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: ErrorComponent }
 ];
 
