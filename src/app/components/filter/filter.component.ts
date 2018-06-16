@@ -1,9 +1,29 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  Output,
+  EventEmitter
+} from '@angular/core';
+import { MatAccordion } from '@angular/material';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.scss']
+  styleUrls: ['./filter.component.scss'],
+  animations: [
+    trigger('expanded', [
+      state('true', style({ transform: 'rotate(180deg)' })),
+      transition('* <=> true', animate('150ms'))
+    ])
+  ]
 })
 export class FilterComponent implements OnInit {
   sortActions = [];
@@ -15,6 +35,9 @@ export class FilterComponent implements OnInit {
   tickInterval = 10;
   @ViewChild('minRange') minRange;
   @ViewChild('maxRange') maxRange;
+  @ViewChild(MatAccordion) accordion: MatAccordion;
+  isExpanded = false;
+  @Output() drawerClose = new EventEmitter();
 
   constructor() {}
   ngOnInit() {
@@ -27,14 +50,16 @@ export class FilterComponent implements OnInit {
     ];
     for (let i = 0; i < 3; i++) {
       this.sizes.push({ desc: `${Math.pow(2, i + 1)}"`, selected: true });
+      this.brands.push({ desc: `Brand${i + 1}`, selected: true });
     }
-    this.brands.push(
-      { desc: 'Turbo', selected: true },
-      { desc: 'Tarian', selected: true },
-      { desc: 'Siya', selected: true },
-      { desc: 'Kaba', selected: true },
-      { desc: 'Local', selected: true }
-    );
+    console.log(this.accordion);
+  }
+  emitDrawerClose() {
+    this.drawerClose.emit();
+  }
+  toggleAccordion() {
+    this.isExpanded ? this.accordion.closeAll() : this.accordion.openAll();
+    this.isExpanded = !this.isExpanded;
   }
   onInput(slider, rangeComponent) {
     switch (rangeComponent.label) {
@@ -51,27 +76,5 @@ export class FilterComponent implements OnInit {
             : this.minRange.value;
     }
     rangeComponent.value = slider.value;
-  }
-  // onChange(slider, rangeComponent) {
-  //   switch (rangeComponent.label) {
-  //     case 'Min':
-  //       if (slider.value >= this.maxRange.value) {
-  //         slider.value = this.maxRange.value - this.step;
-  //         this.snackBar.open('Min cannot be greater than Max');
-  //       }
-  //       this.minRangeVal = slider.value;
-  //       break;
-  //     case 'Max':
-  //       if (slider.value <= this.minRangeVal) {
-  //         slider.value = this.minRangeVal + this.step;
-  //         this.snackBar.open('Max cannot be lesser than Min');
-  //       }
-  //       this.maxRange.value = slider.value;
-  //       break;
-  //   }
-  //   rangeComponent.value = slider.value;
-  // }
-  log(event) {
-    console.log(event);
   }
 }

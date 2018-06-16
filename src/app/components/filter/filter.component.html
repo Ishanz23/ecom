@@ -1,5 +1,25 @@
-<mat-accordion>
-  <mat-expansion-panel>
+<mat-toolbar class="px-8">
+  <button mat-icon-button (click)="emitDrawerClose()" matTooltip="Close drawer">
+    <mat-icon>close</mat-icon>
+  </button>
+  <span>Filter</span>
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="toggleAccordion()" [matTooltip]="this.isExpanded ? 'Close all' : 'Expand all'" [style.display.none]="isExpanded"
+    [@expanded]="isExpanded">
+    <mat-icon>expand_more</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-accordion displayMode="flat" multi>
+  <mat-expansion-panel [expanded]="isExpanded">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Size</mat-panel-title>
+      <mat-panel-description class="mat-caption">Showing {{ sizeList.selectedOptions.selected.length }} sizes</mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-selection-list dense class="pt-0" #sizeList>
+      <mat-list-option checkboxPosition="before" *ngFor="let size of sizes" [selected]="size.selected">{{size.desc}}</mat-list-option>
+    </mat-selection-list>
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="isExpanded">
     <mat-expansion-panel-header>
       <mat-panel-title>Sort</mat-panel-title>
       <mat-panel-description class="mat-caption">{{ sort.value }}</mat-panel-description>
@@ -10,7 +30,7 @@
       </mat-button-toggle>
     </mat-button-toggle-group>
   </mat-expansion-panel>
-  <mat-expansion-panel>
+  <mat-expansion-panel [expanded]="isExpanded">
     <mat-expansion-panel-header>
       <mat-panel-title>Price</mat-panel-title>
       <mat-panel-description class="mat-caption">₹{{ minRange.value }} - ₹{{ maxRange.value }}</mat-panel-description>
@@ -22,22 +42,13 @@
         color="accent" (input)="onInput($event, maxRange)"></app-range>
     </div>
   </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>Size</mat-panel-title>
-      <mat-panel-description class="mat-caption">Showing {{ sizeList.selectedOptions.selected.length }} sizes</mat-panel-description>
-    </mat-expansion-panel-header>
-    <mat-selection-list dense class="pt-0" #sizeList>
-      <mat-list-option checkboxPosition="before" *ngFor="let size of sizes" [selected]="size.selected">{{size.desc}}</mat-list-option>
-    </mat-selection-list>
-  </mat-expansion-panel>
-  <mat-expansion-panel>
+  <mat-expansion-panel [expanded]="isExpanded">
     <mat-expansion-panel-header>
       <mat-panel-title>Brand</mat-panel-title>
       <mat-panel-description class="mat-caption">Showing {{ brandList.selectedOptions.selected.length }} brands</mat-panel-description>
     </mat-expansion-panel-header>
     <mat-selection-list dense class="pt-0" #brandList>
-      <mat-list-option checkboxPosition="before" *ngFor="let brand of brands" [selected]="brand.selected">{{brand.desc}}</mat-list-option>
+      <mat-list-option checkboxPosition="before" *ngFor="let brand of brands" [selected]="brand.selected">{{ brand.desc }}</mat-list-option>
     </mat-selection-list>
   </mat-expansion-panel>
 </mat-accordion>

@@ -1,14 +1,6 @@
 <mat-drawer-container>
   <mat-drawer #filter position="end">
-    <mat-toolbar class="px-8">
-      <mat-icon class="px-8">filter_list</mat-icon>
-      <span>Filter</span>
-      <span class="spacer"></span>
-      <button mat-icon-button (click)="filter.close()">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-toolbar>
-    <app-filter></app-filter>
+    <app-filter (drawerClose)="filter.close()"></app-filter>
   </mat-drawer>
   <mat-drawer-content>
     <mat-toolbar class="px-8">
