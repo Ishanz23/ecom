@@ -6,24 +6,13 @@ import {
   EventEmitter
 } from '@angular/core';
 import { MatAccordion } from '@angular/material';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
-} from '@angular/animations';
+import { toggleExpansion } from '../animations/animations';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss'],
-  animations: [
-    trigger('expanded', [
-      state('true', style({ transform: 'rotate(180deg)' })),
-      transition('* <=> true', animate('150ms'))
-    ])
-  ]
+  animations: [toggleExpansion]
 })
 export class FilterComponent implements OnInit {
   sortActions = [];
@@ -52,7 +41,6 @@ export class FilterComponent implements OnInit {
       this.sizes.push({ desc: `${Math.pow(2, i + 1)}"`, selected: true });
       this.brands.push({ desc: `Brand${i + 1}`, selected: true });
     }
-    console.log(this.accordion);
   }
   emitDrawerClose() {
     this.drawerClose.emit();
