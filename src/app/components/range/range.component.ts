@@ -9,10 +9,10 @@ export class RangeComponent {
   @Input() label;
   @Input() minVal;
   @Input() maxVal;
+  @Input() value;
   @Input() step;
   @Input() tickInterval;
   @Input() color;
-  @Input() value;
   @Output() change = new EventEmitter();
 
   constructor() {}

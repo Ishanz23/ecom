@@ -16,9 +16,9 @@
       <mat-panel-description class="mat-caption">₹{{ minRange.value }} - ₹{{ maxRange.value }}</mat-panel-description>
     </mat-expansion-panel-header>
     <div class="range-container">
-      <app-range #minRange label="Min" [minVal]="minVal" [maxVal]="maxVal" [step]="step" [tickInterval]="tickInterval" color="accent" [value]="minRangeVal"
+      <app-range #minRange label="Min" [minVal]="minVal" [maxVal]="maxVal" [value]="minVal" [step]="step" [tickInterval]="tickInterval" color="accent"
         (change)="onChange($event, minRange)"></app-range>
-      <app-range #maxRange label="Max" [minVal]="minVal" [maxVal]="maxVal" [step]="step" [tickInterval]="tickInterval" color="accent" [value]="maxRangeVal"
+      <app-range #maxRange label="Max" [minVal]="minVal" [maxVal]="maxVal" [value]="maxVal" [step]="step" [tickInterval]="tickInterval" color="accent"
         (change)="onChange($event, maxRange)"></app-range>
     </div>
   </mat-expansion-panel>

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-filter',
@@ -10,12 +9,12 @@ export class FilterComponent implements OnInit {
   sortActions = [];
   minVal = 0;
   maxVal = 500;
-  minRangeVal = 50;
-  maxRangeVal = 200;
   step = 10;
   tickInterval = 10;
+  @ViewChild('minRange') minRange;
+  @ViewChild('maxRange') maxRange;
 
-  constructor(public snackBar: MatSnackBar) {}
+  constructor() {}
   ngOnInit() {
     this.sortActions = [
       { icon: '', desc: 'Relevance', value: 'rel' },
@@ -28,20 +27,36 @@ export class FilterComponent implements OnInit {
   onChange(slider, rangeComponent) {
     switch (rangeComponent.label) {
       case 'Min':
-        if (slider.value >= this.maxRangeVal) {
-          slider.value = this.maxRangeVal - this.step;
-          this.snackBar.open('Min cannot be greater than Max');
-        }
-        this.minRangeVal = slider.value;
+        this.maxRange.value =
+          slider.value >= this.maxRange.value
+            ? slider.value
+            : this.maxRange.value;
         break;
       case 'Max':
-        if (slider.value <= this.minRangeVal) {
-          slider.value = this.minRangeVal + this.step;
-          this.snackBar.open('Max cannot be lesser than Min');
-        }
-        this.maxRangeVal = slider.value;
-        break;
+        this.minRange.value =
+          slider.value <= this.minRange.value
+            ? slider.value
+            : this.minRange.value;
     }
     rangeComponent.value = slider.value;
   }
+  // onChange(slider, rangeComponent) {
+  //   switch (rangeComponent.label) {
+  //     case 'Min':
+  //       if (slider.value >= this.maxRange.value) {
+  //         slider.value = this.maxRange.value - this.step;
+  //         this.snackBar.open('Min cannot be greater than Max');
+  //       }
+  //       this.minRangeVal = slider.value;
+  //       break;
+  //     case 'Max':
+  //       if (slider.value <= this.minRangeVal) {
+  //         slider.value = this.minRangeVal + this.step;
+  //         this.snackBar.open('Max cannot be lesser than Min');
+  //       }
+  //       this.maxRange.value = slider.value;
+  //       break;
+  //   }
+  //   rangeComponent.value = slider.value;
+  // }
 }
