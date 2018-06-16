@@ -1,9 +1,9 @@
-<div class="px-8">{{ label }} : {{ value }}</div>
-<mat-slider [color]="color" [max]="max" [min]="min" [step]="step" thumbLabel="true" tickInterval="10" [(ngModel)]="value"
-  class="w-100" (change)="onChange()">
+<div class="px-8">{{ label }} : {{ slider.value }}</div>
+<mat-slider [min]="minVal" [max]="maxVal" [step]="step" [tickInterval]="tickInterval" [color]="color" [value]="value" thumbLabel="true"
+  class="w-100" #slider (change)="onChange(slider)">
 </mat-slider>
 <div class="px-8 range mat-caption">
-  <span>₹0</span>
+  <span>₹{{ minVal }}</span>
   <span class="spacer"></span>
-  <span>₹500</span>
+  <span>₹{{ maxVal }}</span>
 </div>

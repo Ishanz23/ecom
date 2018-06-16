@@ -1,6 +1,9 @@
 mat-sidenav-container {
   height: 100%;
 }
+mat-sidenav {
+  min-width: 230px;
+}
 .icon-img-container {
   margin-right: 8px;
 }
@@ -8,4 +11,7 @@ mat-sidenav-content mat-toolbar {
   position: absolute;
   top: 0;
   z-index: 2;
+}
+.ml-8 {
+  margin-left: 8px;
 }

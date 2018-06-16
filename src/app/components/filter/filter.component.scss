@@ -1,4 +1,17 @@
 .range-container {
   display: grid;
-  grid-auto-flow: column;
+  row-gap: 16px;
+}
+.mx-m16 {
+  margin: 0 -16px;
+}
+.mr-8 {
+  margin-right: 8px;
+}
+.mat-button-toggle-group {
+  box-shadow: none;
+}
+.mat-button-toggle,
+.mat-button-toggle-checked {
+  color: black;
 }

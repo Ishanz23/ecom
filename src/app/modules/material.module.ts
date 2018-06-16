@@ -11,9 +11,12 @@ import {
   MatTooltipModule,
   MAT_TOOLTIP_DEFAULT_OPTIONS,
   MatExpansionModule,
-  MatSliderModule
+  MatSliderModule,
+  MatSnackBarModule,
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+  MatButtonToggleModule
 } from '@angular/material';
-import { tooltipDefaults } from './providers/tooltipDefaults.provider';
+import { tooltipDefaults, snackbarDefaults } from './module.providers';
 
 @NgModule({
   imports: [],
@@ -28,10 +31,13 @@ import { tooltipDefaults } from './providers/tooltipDefaults.provider';
     MatCardModule,
     MatTooltipModule,
     MatExpansionModule,
-    MatSliderModule
+    MatSliderModule,
+    MatSnackBarModule,
+    MatButtonToggleModule
   ],
   providers: [
-    { provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: tooltipDefaults }
+    { provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: tooltipDefaults },
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: snackbarDefaults }
   ]
 })
 export class MaterialModule {}

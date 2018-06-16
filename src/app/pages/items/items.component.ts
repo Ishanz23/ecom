@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Category } from '../../models/category.model';
 import { Item } from '../../models/item.model';
@@ -14,6 +14,7 @@ export class ItemsComponent implements OnInit {
   category: Category;
   items: Item[] = [];
   mobileQuery: MediaQueryList;
+  @Output() openDrawer = new EventEmitter();
 
   constructor(
     private route: ActivatedRoute,
@@ -24,5 +25,8 @@ export class ItemsComponent implements OnInit {
     const categoryId = +this.route.snapshot.paramMap.get('categoryId');
     this.category = this.categoryService.getCategory(categoryId);
     this.items = this.itemsService.getAllItems(categoryId);
+  }
+  onClick() {
+    this.openDrawer.emit();
   }
 }
