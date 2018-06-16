@@ -1,4 +1,4 @@
-.range-container {
+.container-grid {
   display: grid;
   row-gap: 16px;
 }
@@ -8,10 +8,19 @@
 .mr-8 {
   margin-right: 8px;
 }
+.pt-0 {
+  padding-top: 0;
+}
+.mat-expansion-panel-header-description {
+  color: rgba(0, 0, 0, 0.7);
+}
 .mat-button-toggle-group {
   box-shadow: none;
 }
 .mat-button-toggle,
 .mat-button-toggle-checked {
   color: black;
+}
+.mat-selection-list[dense] .mat-list-option {
+  font-size: 14px;
 }

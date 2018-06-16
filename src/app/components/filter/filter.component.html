@@ -2,24 +2,42 @@
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>Sort</mat-panel-title>
-      <mat-panel-description class="mat-caption">Relevance</mat-panel-description>
+      <mat-panel-description class="mat-caption">{{ sort.value }}</mat-panel-description>
     </mat-expansion-panel-header>
-    <mat-button-toggle-group class="w-100" #group="matButtonToggleGroup" vertical>
-      <mat-button-toggle *ngFor="let action of sortActions" [value]="action.value" [checked]="action.value === 'rel' ? 'true': 'false'">
-        <mat-icon class="mr-8">{{ action.icon }}</mat-icon> {{ action.desc }}
+    <mat-button-toggle-group class="w-100" #sort="matButtonToggleGroup" vertical>
+      <mat-button-toggle *ngFor="let action of sortActions; first as isFirst" [value]="action.value" [checked]="isFirst ? 'true': 'false'">
+        <mat-icon class="mr-8">{{ action.icon }}</mat-icon> {{ action.value }}
       </mat-button-toggle>
     </mat-button-toggle-group>
   </mat-expansion-panel>
   <mat-expansion-panel>
     <mat-expansion-panel-header>
-      <mat-panel-title>Range</mat-panel-title>
+      <mat-panel-title>Price</mat-panel-title>
       <mat-panel-description class="mat-caption">₹{{ minRange.value }} - ₹{{ maxRange.value }}</mat-panel-description>
     </mat-expansion-panel-header>
-    <div class="range-container">
-      <app-range #minRange label="Min" [minVal]="minVal" [maxVal]="maxVal" [value]="minVal" [step]="step" [tickInterval]="tickInterval" color="accent"
-        (change)="onChange($event, minRange)"></app-range>
-      <app-range #maxRange label="Max" [minVal]="minVal" [maxVal]="maxVal" [value]="maxVal" [step]="step" [tickInterval]="tickInterval" color="accent"
-        (change)="onChange($event, maxRange)"></app-range>
+    <div class="container-grid">
+      <app-range #minRange label="Min" [minVal]="minVal" [maxVal]="maxVal" [value]="minVal" [step]="step" [tickInterval]="tickInterval"
+        color="accent" (input)="onInput($event, minRange)"></app-range>
+      <app-range #maxRange label="Max" [minVal]="minVal" [maxVal]="maxVal" [value]="maxVal" [step]="step" [tickInterval]="tickInterval"
+        color="accent" (input)="onInput($event, maxRange)"></app-range>
     </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Size</mat-panel-title>
+      <mat-panel-description class="mat-caption">Showing {{ sizeList.selectedOptions.selected.length }} sizes</mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-selection-list dense class="pt-0" #sizeList>
+      <mat-list-option checkboxPosition="before" *ngFor="let size of sizes" [selected]="size.selected">{{size.desc}}</mat-list-option>
+    </mat-selection-list>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Brand</mat-panel-title>
+      <mat-panel-description class="mat-caption">Showing {{ brandList.selectedOptions.selected.length }} brands</mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-selection-list dense class="pt-0" #brandList>
+      <mat-list-option checkboxPosition="before" *ngFor="let brand of brands" [selected]="brand.selected">{{brand.desc}}</mat-list-option>
+    </mat-selection-list>
   </mat-expansion-panel>
 </mat-accordion>

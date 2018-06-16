@@ -7,6 +7,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class FilterComponent implements OnInit {
   sortActions = [];
+  sizes = [];
+  brands = [];
   minVal = 0;
   maxVal = 500;
   step = 10;
@@ -17,14 +19,24 @@ export class FilterComponent implements OnInit {
   constructor() {}
   ngOnInit() {
     this.sortActions = [
-      { icon: '', desc: 'Relevance', value: 'rel' },
-      { icon: 'trending_up', desc: 'Price: Low to High', value: 'lth' },
-      { icon: 'trending_down', desc: 'Price: High to Low', value: 'htl' },
-      { icon: 'star', desc: 'Rating', value: 'ret' },
-      { icon: 'fiber_new', desc: 'Newest', value: 'new' }
+      { icon: '', value: 'Relevance' },
+      { icon: 'trending_up', value: 'Price: Low to High' },
+      { icon: 'trending_down', value: 'Price: High to Low' },
+      { icon: 'star', value: 'Rating' },
+      { icon: 'fiber_new', value: 'Newest' }
     ];
+    for (let i = 0; i < 3; i++) {
+      this.sizes.push({ desc: `${Math.pow(2, i + 1)}"`, selected: true });
+    }
+    this.brands.push(
+      { desc: 'Turbo', selected: true },
+      { desc: 'Tarian', selected: true },
+      { desc: 'Siya', selected: true },
+      { desc: 'Kaba', selected: true },
+      { desc: 'Local', selected: true }
+    );
   }
-  onChange(slider, rangeComponent) {
+  onInput(slider, rangeComponent) {
     switch (rangeComponent.label) {
       case 'Min':
         this.maxRange.value =
@@ -59,4 +71,7 @@ export class FilterComponent implements OnInit {
   //   }
   //   rangeComponent.value = slider.value;
   // }
+  log(event) {
+    console.log(event);
+  }
 }

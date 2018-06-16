@@ -1,9 +1,9 @@
 <div class="px-8">{{ label }} : {{ slider.value }}</div>
 <mat-slider [min]="minVal" [max]="maxVal" [step]="step" [tickInterval]="tickInterval" [color]="color" [value]="value" thumbLabel="true"
-  class="w-100" #slider (change)="onChange(slider)">
+  class="w-100" #slider (input)="onInput(slider)">
 </mat-slider>
 <div class="px-8 range mat-caption">
-  <span>₹{{ minVal }}</span>
+  <span>{{ minVal }}</span>
   <span class="spacer"></span>
-  <span>₹{{ maxVal }}</span>
+  <span>{{ maxVal }}</span>
 </div>

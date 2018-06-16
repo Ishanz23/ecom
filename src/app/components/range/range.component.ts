@@ -13,10 +13,10 @@ export class RangeComponent {
   @Input() step;
   @Input() tickInterval;
   @Input() color;
-  @Output() change = new EventEmitter();
+  @Output() input = new EventEmitter();
 
   constructor() {}
-  onChange(event) {
-    this.change.emit(event);
+  onInput(event) {
+    this.input.emit(event);
   }
 }
